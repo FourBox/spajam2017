@@ -9,6 +9,13 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RealmSwift
+
+class Location: Object {
+    dynamic var latitude: Double = 0.0
+    dynamic var longitude: Double = 0.0
+    dynamic var createdAt = Date(timeIntervalSince1970: 1)
+}
 
 class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -19,6 +26,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var coordinate: CLLocationCoordinate2D!
     var locationManager: CLLocationManager!
     var isStarting = false
+    var locations : [Location]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
