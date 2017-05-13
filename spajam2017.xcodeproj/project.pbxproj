@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DCD99EDC414EFA92C89F3C3 /* Pods_spajam2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8952DF6BC12716D17C676EA8 /* Pods_spajam2017.framework */; };
 		D641F21C1EC6EE1E007A5A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F21B1EC6EE1E007A5A1D /* AppDelegate.swift */; };
 		D641F21E1EC6EE1E007A5A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F21D1EC6EE1E007A5A1D /* ViewController.swift */; };
 		D641F2211EC6EE1E007A5A1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641F21F1EC6EE1E007A5A1D /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8952DF6BC12716D17C676EA8 /* Pods_spajam2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spajam2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD8B7FA64FE900105255322 /* Pods-spajam2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spajam2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spajam2017/Pods-spajam2017.debug.xcconfig"; sourceTree = "<group>"; };
+		9E87B7507E0AB65403F0F60C /* Pods-spajam2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spajam2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-spajam2017/Pods-spajam2017.release.xcconfig"; sourceTree = "<group>"; };
 		D641F2181EC6EE1E007A5A1D /* spajam2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spajam2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D641F21B1EC6EE1E007A5A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D641F21D1EC6EE1E007A5A1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCD99EDC414EFA92C89F3C3 /* Pods_spajam2017.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4C9BC9CB983B5D67BD1C3A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8952DF6BC12716D17C676EA8 /* Pods_spajam2017.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D641F20F1EC6EE1E007A5A1D = {
 			isa = PBXGroup;
 			children = (
 				D641F21A1EC6EE1E007A5A1D /* spajam2017 */,
 				D641F2191EC6EE1E007A5A1D /* Products */,
+				D8868E97A05575DE305F8317 /* Pods */,
+				A4C9BC9CB983B5D67BD1C3A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = spajam2017;
 			sourceTree = "<group>";
 		};
+		D8868E97A05575DE305F8317 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8B7FA64FE900105255322 /* Pods-spajam2017.debug.xcconfig */,
+				9E87B7507E0AB65403F0F60C /* Pods-spajam2017.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D641F22A1EC6EE1E007A5A1D /* Build configuration list for PBXNativeTarget "spajam2017" */;
 			buildPhases = (
+				132AFF3172D8B241B2899746 /* [CP] Check Pods Manifest.lock */,
 				D641F2141EC6EE1E007A5A1D /* Sources */,
 				D641F2151EC6EE1E007A5A1D /* Frameworks */,
 				D641F2161EC6EE1E007A5A1D /* Resources */,
+				28E29636D777360F71766586 /* [CP] Embed Pods Frameworks */,
+				DBDD8BDCB63301AD059DB92E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		132AFF3172D8B241B2899746 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		28E29636D777360F71766586 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-spajam2017/Pods-spajam2017-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBDD8BDCB63301AD059DB92E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-spajam2017/Pods-spajam2017-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D641F2141EC6EE1E007A5A1D /* Sources */ = {
@@ -258,6 +333,7 @@
 		};
 		D641F22B1EC6EE1E007A5A1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AD8B7FA64FE900105255322 /* Pods-spajam2017.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = spajam2017/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		D641F22C1EC6EE1E007A5A1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E87B7507E0AB65403F0F60C /* Pods-spajam2017.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = spajam2017/Info.plist;
