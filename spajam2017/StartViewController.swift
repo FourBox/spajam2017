@@ -15,16 +15,17 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
+    @IBOutlet weak var startButton: UIButton!
     var coordinate: CLLocationCoordinate2D!
     var locationManager: CLLocationManager!
+    var isStarting = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager = CLLocationManager() // インスタンスの生成
+        locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.distanceFilter = 100.0
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         let status = CLLocationManager.authorizationStatus()
         
         // まだ認証が得られていない場合は、認証ダイアログを表示.
@@ -36,38 +37,54 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         locationManager.startUpdatingLocation()
         
         //現在位置を中心にセット
-        mapView.userTrackingMode = MKUserTrackingMode.follow
         mapView.setCenter(mapView.userLocation.coordinate, animated: true)
+        mapView.userTrackingMode = MKUserTrackingMode.follow
         
-
         
     }
     
-    // GPSから値を取得した際に呼び出されるメソッド.
+    // GPSから値を取得した際に呼び出されるメソッド
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        // 配列から現在座標を取得.
+        // 配列から現在座標を取得
         let myLocations: NSArray = locations as NSArray
         let myLastLocation: CLLocation = myLocations.lastObject as! CLLocation
         let myLocation:CLLocationCoordinate2D = myLastLocation.coordinate
         
         print("\(myLocation.latitude), \(myLocation.longitude)")
         
-        // 縮尺.
+        // 縮尺
         let myLatDist : CLLocationDistance = 100
         let myLonDist : CLLocationDistance = 100
         
-        // Regionを作成.
+        // Regionを作成
         let myRegion: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(myLocation, myLatDist, myLonDist);
         
-        // MapViewに反映.
+        // MapViewに反映
         mapView.setRegion(myRegion, animated: true)
     }
-    
-    // Regionが変更した時に呼び出されるメソッド.
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("regionDidChangeAnimated")
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+
+    
+    @IBAction func pushStartButton(_ sender: Any) {
+        if(isStarting){
+            isStarting = false
+            startButton.setTitle("Start", for: .normal)
+            dateLabel.text = "🙆🏻月🙅🏻日"
+            timeLabel.text = "所要時間   hh:mm:ss"
+        }else{
+            isStarting = true
+           //TODO: ボタンの画像とか変更
+            startButton.setTitle("Stop", for: .normal)
+            dateLabel.text = "スタート時間 hh:mm:ss"
+            timeLabel.text = "経過時間   hh:mm:ss"
+        }
+    }
+    
     
     // 認証が変更された時に呼び出されるメソッド.
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -83,21 +100,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         case .notDetermined:
             print("NotDetermined")
         }
-    } 
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-     /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

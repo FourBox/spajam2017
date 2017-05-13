@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRM-QA-fXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1304" y="-59"/>
+            <point key="canvasLocation" x="-1766" y="-61"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -77,7 +77,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <segue destination="Jcy-5V-mxg" kind="show" id="MGa-ah-I3B"/>
+                                            <action selector="pushStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5um-Wb-5Cb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,110 +120,13 @@
                     <connections>
                         <outlet property="dateLabel" destination="Ee9-gn-82x" id="eOJ-Wa-4oe"/>
                         <outlet property="mapView" destination="bLf-PJ-Htw" id="AjY-ZU-LMr"/>
+                        <outlet property="startButton" destination="vrw-6O-qHR" id="ajm-P1-aAq"/>
                         <outlet property="timeLabel" destination="QMW-Nj-f66" id="zXs-Cg-sKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="-62"/>
-        </scene>
-        <!--Playing View Controller-->
-        <scene sceneID="RtE-8H-of2">
-            <objects>
-                <viewController id="Jcy-5V-mxg" customClass="PlayingViewController" customModule="spajam2017" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5JY-mb-oZY"/>
-                        <viewControllerLayoutGuide type="bottom" id="AKT-lS-f8N"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7be-Ul-0tu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5X-G0-d22">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="7sH-iF-AsR"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem systemItem="history" id="rFx-og-ETE"/>
-                                    <tabBarItem systemItem="more" id="8Jc-ee-x7B"/>
-                                </items>
-                            </tabBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-PX-pPv">
-                                <rect key="frame" x="0.0" y="498" width="375" height="120"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スタート時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbT-bM-9gN">
-                                        <rect key="frame" x="30" y="10" width="315" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="zNh-E4-8yx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="経過時間   hh:mm:ss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyn-eO-R8E">
-                                        <rect key="frame" x="30" y="40" width="315" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="cdj-19-caK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zco-Vi-b4f">
-                                        <rect key="frame" x="100" y="70" width="175" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="KNA-Hv-rWb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <state key="normal" title="Stop"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Oyn-eO-R8E" firstAttribute="leading" secondItem="PgP-PX-pPv" secondAttribute="leading" constant="30" id="0MA-0y-lou"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zco-Vi-b4f" secondAttribute="trailing" constant="100" id="4sA-4g-IX3"/>
-                                    <constraint firstItem="Zco-Vi-b4f" firstAttribute="top" secondItem="Oyn-eO-R8E" secondAttribute="bottom" constant="5" id="8q9-VP-2UH"/>
-                                    <constraint firstAttribute="height" constant="120" id="BWp-DL-ihP"/>
-                                    <constraint firstItem="qbT-bM-9gN" firstAttribute="leading" secondItem="PgP-PX-pPv" secondAttribute="leading" constant="30" id="Ey5-iS-jfs"/>
-                                    <constraint firstItem="Oyn-eO-R8E" firstAttribute="top" secondItem="qbT-bM-9gN" secondAttribute="bottom" constant="5" id="M0B-NZ-Ydz"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zco-Vi-b4f" secondAttribute="bottom" constant="5" id="Wpn-ob-piF"/>
-                                    <constraint firstItem="Zco-Vi-b4f" firstAttribute="leading" secondItem="PgP-PX-pPv" secondAttribute="leading" constant="100" id="qvW-M7-Uo3"/>
-                                    <constraint firstAttribute="trailing" secondItem="Oyn-eO-R8E" secondAttribute="trailing" constant="30" id="y6O-Ux-pfi"/>
-                                    <constraint firstAttribute="trailing" secondItem="qbT-bM-9gN" secondAttribute="trailing" constant="30" id="yUe-Us-heN"/>
-                                </constraints>
-                            </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypP-K8-mUE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="434"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Jcy-5V-mxg" id="94y-YR-daV"/>
-                                </connections>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="AKT-lS-f8N" firstAttribute="top" secondItem="z5X-G0-d22" secondAttribute="bottom" id="DOh-RW-gcg"/>
-                            <constraint firstItem="ypP-K8-mUE" firstAttribute="leading" secondItem="7be-Ul-0tu" secondAttribute="leading" id="JPZ-xy-Bo9"/>
-                            <constraint firstAttribute="trailing" secondItem="ypP-K8-mUE" secondAttribute="trailing" id="LAb-fF-lFh"/>
-                            <constraint firstItem="PgP-PX-pPv" firstAttribute="leading" secondItem="7be-Ul-0tu" secondAttribute="leading" id="QlG-30-JCu"/>
-                            <constraint firstAttribute="trailing" secondItem="PgP-PX-pPv" secondAttribute="trailing" id="Qt5-Xh-DsB"/>
-                            <constraint firstItem="ypP-K8-mUE" firstAttribute="top" secondItem="5JY-mb-oZY" secondAttribute="bottom" id="YHp-Xu-EZV"/>
-                            <constraint firstAttribute="trailing" secondItem="z5X-G0-d22" secondAttribute="trailing" id="Ydk-q5-7mE"/>
-                            <constraint firstItem="PgP-PX-pPv" firstAttribute="top" secondItem="ypP-K8-mUE" secondAttribute="bottom" id="kdF-Jm-dDD"/>
-                            <constraint firstItem="z5X-G0-d22" firstAttribute="leading" secondItem="7be-Ul-0tu" secondAttribute="leading" id="kde-dk-gVI"/>
-                            <constraint firstItem="z5X-G0-d22" firstAttribute="top" secondItem="PgP-PX-pPv" secondAttribute="bottom" id="qwY-iK-rL0"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="T6S-1G-qMA"/>
-                    <connections>
-                        <outlet property="mapView" destination="ypP-K8-mUE" id="Ps6-Pt-a7j"/>
-                        <outlet property="startTimeLabel" destination="qbT-bM-9gN" id="vhk-FZ-Rnm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dDe-OE-uSz" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-342" y="-60"/>
+            <point key="canvasLocation" x="-1055" y="-61"/>
         </scene>
     </scenes>
 </document>

@@ -15,7 +15,7 @@
 		D641F2261EC6EE1E007A5A1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641F2241EC6EE1E007A5A1D /* LaunchScreen.storyboard */; };
 		D641F22E1EC6FF18007A5A1D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F22D1EC6FF18007A5A1D /* StartViewController.swift */; };
 		D641F2301EC70095007A5A1D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D641F22F1EC70095007A5A1D /* MapKit.framework */; };
-		D641F2361EC70A83007A5A1D /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F2351EC70A83007A5A1D /* PlayingViewController.swift */; };
+		D641F23A1EC719BB007A5A1D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D641F2391EC719BB007A5A1D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		D641F2271EC6EE1E007A5A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D641F22D1EC6FF18007A5A1D /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D641F22F1EC70095007A5A1D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		D641F2351EC70A83007A5A1D /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
+		D641F2391EC719BB007A5A1D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D641F23A1EC719BB007A5A1D /* CoreLocation.framework in Frameworks */,
 				D641F2301EC70095007A5A1D /* MapKit.framework in Frameworks */,
 				2DCD99EDC414EFA92C89F3C3 /* Pods_spajam2017.framework in Frameworks */,
 			);
@@ -50,6 +51,7 @@
 		A4C9BC9CB983B5D67BD1C3A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D641F2391EC719BB007A5A1D /* CoreLocation.framework */,
 				D641F22F1EC70095007A5A1D /* MapKit.framework */,
 				8952DF6BC12716D17C676EA8 /* Pods_spajam2017.framework */,
 			);
@@ -80,7 +82,6 @@
 				D641F21B1EC6EE1E007A5A1D /* AppDelegate.swift */,
 				D641F21D1EC6EE1E007A5A1D /* ViewController.swift */,
 				D641F22D1EC6FF18007A5A1D /* StartViewController.swift */,
-				D641F2351EC70A83007A5A1D /* PlayingViewController.swift */,
 				D641F21F1EC6EE1E007A5A1D /* Main.storyboard */,
 				D641F2221EC6EE1E007A5A1D /* Assets.xcassets */,
 				D641F2241EC6EE1E007A5A1D /* LaunchScreen.storyboard */,
@@ -223,7 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D641F21E1EC6EE1E007A5A1D /* ViewController.swift in Sources */,
-				D641F2361EC70A83007A5A1D /* PlayingViewController.swift in Sources */,
 				D641F21C1EC6EE1E007A5A1D /* AppDelegate.swift in Sources */,
 				D641F22E1EC6FF18007A5A1D /* StartViewController.swift in Sources */,
 			);
