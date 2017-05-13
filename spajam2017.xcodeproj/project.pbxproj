@@ -13,6 +13,8 @@
 		D641F2211EC6EE1E007A5A1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641F21F1EC6EE1E007A5A1D /* Main.storyboard */; };
 		D641F2231EC6EE1E007A5A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D641F2221EC6EE1E007A5A1D /* Assets.xcassets */; };
 		D641F2261EC6EE1E007A5A1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641F2241EC6EE1E007A5A1D /* LaunchScreen.storyboard */; };
+		D641F22E1EC6FF18007A5A1D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F22D1EC6FF18007A5A1D /* StartViewController.swift */; };
+		D641F2301EC70095007A5A1D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D641F22F1EC70095007A5A1D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D641F2221EC6EE1E007A5A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D641F2251EC6EE1E007A5A1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D641F2271EC6EE1E007A5A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D641F22D1EC6FF18007A5A1D /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D641F22F1EC70095007A5A1D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D641F2301EC70095007A5A1D /* MapKit.framework in Frameworks */,
 				2DCD99EDC414EFA92C89F3C3 /* Pods_spajam2017.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +48,7 @@
 		A4C9BC9CB983B5D67BD1C3A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D641F22F1EC70095007A5A1D /* MapKit.framework */,
 				8952DF6BC12716D17C676EA8 /* Pods_spajam2017.framework */,
 			);
 			name = Frameworks;
@@ -71,6 +77,7 @@
 			children = (
 				D641F21B1EC6EE1E007A5A1D /* AppDelegate.swift */,
 				D641F21D1EC6EE1E007A5A1D /* ViewController.swift */,
+				D641F22D1EC6FF18007A5A1D /* StartViewController.swift */,
 				D641F21F1EC6EE1E007A5A1D /* Main.storyboard */,
 				D641F2221EC6EE1E007A5A1D /* Assets.xcassets */,
 				D641F2241EC6EE1E007A5A1D /* LaunchScreen.storyboard */,
@@ -123,6 +130,7 @@
 				TargetAttributes = {
 					D641F2171EC6EE1E007A5A1D = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = N49YV76SV7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -213,6 +221,7 @@
 			files = (
 				D641F21E1EC6EE1E007A5A1D /* ViewController.swift in Sources */,
 				D641F21C1EC6EE1E007A5A1D /* AppDelegate.swift in Sources */,
+				D641F22E1EC6FF18007A5A1D /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +345,7 @@
 			baseConfigurationReference = 8AD8B7FA64FE900105255322 /* Pods-spajam2017.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N49YV76SV7;
 				INFOPLIST_FILE = spajam2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yuta.spajam2017;
@@ -349,6 +359,7 @@
 			baseConfigurationReference = 9E87B7507E0AB65403F0F60C /* Pods-spajam2017.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N49YV76SV7;
 				INFOPLIST_FILE = spajam2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yuta.spajam2017;
@@ -376,6 +387,7 @@
 				D641F22C1EC6EE1E007A5A1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
