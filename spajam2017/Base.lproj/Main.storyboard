@@ -122,11 +122,30 @@
                         <outlet property="mapView" destination="bLf-PJ-Htw" id="AjY-ZU-LMr"/>
                         <outlet property="startButton" destination="vrw-6O-qHR" id="ajm-P1-aAq"/>
                         <outlet property="timeLabel" destination="QMW-Nj-f66" id="zXs-Cg-sKO"/>
+                        <segue destination="qYT-J1-Jap" kind="show" identifier="toResult" id="vIW-xE-cSy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1055" y="-61"/>
+            <point key="canvasLocation" x="-985" y="-62"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="RHt-lZ-UGV">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qYT-J1-Jap" customClass="ResultViewController" customModule="spajam2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tkE-hB-Wgx"/>
+                        <viewControllerLayoutGuide type="bottom" id="rNg-ly-62X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ETZ-2o-TRR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lS-BT-Zul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188" y="-62"/>
         </scene>
     </scenes>
 </document>

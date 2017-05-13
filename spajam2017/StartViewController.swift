@@ -37,6 +37,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var lat: String!
     var lon: String!
     var check:Bool!  //apiStringの初回読み込みに使用
+    var speedString: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         lat = ""
         lon = ""
         check = true
+        speedString = ""
         
         // まだ認証が得られていない場合は、認証ダイアログを表示.
         if(status != CLAuthorizationStatus.authorizedWhenInUse) {
@@ -151,17 +153,30 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     func finishing(){
         let realm = try! Realm()
         let result: Results<Location> = realm.objects(Location.self).sorted(byKeyPath: "createdAt", ascending: false)
-            let array = Array(result) //中身が消える？
+            let array = Array(realm.objects(Location)) //中身が消える？
             apiString = apiString + "]"
             postAPI()
+        
+    }
+    
+    func segueToResultViewController() {
+        self.performSegue(withIdentifier: "toResult", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResult" {
+            let resultViewController = segue.destination as! ResultViewController
+            resultViewController.speedString = speedString
+        }
     }
 
+
     //緯度経度を送ったら速度が返ってくる
-    func postAPI() {
+    func postAPI(){
         let postString = apiString
         var request = URLRequest(url: URL(string: "http://133.242.224.242/")!)
         request.httpMethod = "POST"
         request.httpBody = postString?.data(using: .utf8)
+        var output = ""
         let task = URLSession.shared.dataTask(with: request, completionHandler: {
             (data, response, error) in
             if error != nil {
@@ -169,8 +184,10 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 return
             }
             print("response: \(response!)")
-            let output = String(data: data!, encoding: .utf8)!
+             output = String(data: data!, encoding: .utf8)!
             print("output: \(output)")
+            self.speedString = output
+            self.segueToResultViewController()
         })
         task.resume()
     }
