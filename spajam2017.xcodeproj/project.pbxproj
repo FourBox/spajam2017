@@ -11,12 +11,12 @@
 		D641F21C1EC6EE1E007A5A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F21B1EC6EE1E007A5A1D /* AppDelegate.swift */; };
 		D641F21E1EC6EE1E007A5A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F21D1EC6EE1E007A5A1D /* ViewController.swift */; };
 		D641F2211EC6EE1E007A5A1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641F21F1EC6EE1E007A5A1D /* Main.storyboard */; };
-		D641F2231EC6EE1E007A5A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D641F2221EC6EE1E007A5A1D /* Assets.xcassets */; };
 		D641F2261EC6EE1E007A5A1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D641F2241EC6EE1E007A5A1D /* LaunchScreen.storyboard */; };
 		D641F22E1EC6FF18007A5A1D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D641F22D1EC6FF18007A5A1D /* StartViewController.swift */; };
 		D641F2301EC70095007A5A1D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D641F22F1EC70095007A5A1D /* MapKit.framework */; };
 		D641F23A1EC719BB007A5A1D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D641F2391EC719BB007A5A1D /* CoreLocation.framework */; };
 		D64B61BA1EC789D200B6581C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B61B91EC789D200B6581C /* ResultViewController.swift */; };
+		D64B61DD1EC7FF3C00B6581C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64B61DC1EC7FF3C00B6581C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,6 @@
 		D641F21B1EC6EE1E007A5A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D641F21D1EC6EE1E007A5A1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D641F2201EC6EE1E007A5A1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D641F2221EC6EE1E007A5A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D641F2251EC6EE1E007A5A1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D641F2271EC6EE1E007A5A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D641F22D1EC6FF18007A5A1D /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		D641F2391EC719BB007A5A1D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D64B61B71EC764B300B6581C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D64B61B91EC789D200B6581C /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D64B61DC1EC7FF3C00B6581C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +88,8 @@
 				D641F22D1EC6FF18007A5A1D /* StartViewController.swift */,
 				D64B61B91EC789D200B6581C /* ResultViewController.swift */,
 				D641F21F1EC6EE1E007A5A1D /* Main.storyboard */,
-				D641F2221EC6EE1E007A5A1D /* Assets.xcassets */,
 				D641F2241EC6EE1E007A5A1D /* LaunchScreen.storyboard */,
+				D64B61DC1EC7FF3C00B6581C /* Assets.xcassets */,
 				D641F2271EC6EE1E007A5A1D /* Info.plist */,
 			);
 			path = spajam2017;
@@ -168,7 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D641F2261EC6EE1E007A5A1D /* LaunchScreen.storyboard in Resources */,
-				D641F2231EC6EE1E007A5A1D /* Assets.xcassets in Resources */,
+				D64B61DD1EC7FF3C00B6581C /* Assets.xcassets in Resources */,
 				D641F2211EC6EE1E007A5A1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,7 +188,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		28E29636D777360F71766586 /* [CP] Embed Pods Frameworks */ = {
@@ -301,6 +301,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PODS_ROOT = "${SRCROOT}/Pods";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -344,6 +345,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PODS_ROOT = "${SRCROOT}/Pods";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;

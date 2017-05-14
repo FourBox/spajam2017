@@ -19,9 +19,12 @@ class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var coordinate: CLLocationCoordinate2D!
     var locationManager: CLLocationManager!
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "詳細"
 
         mapView.setCenter(mapView.userLocation.coordinate, animated: true)
         

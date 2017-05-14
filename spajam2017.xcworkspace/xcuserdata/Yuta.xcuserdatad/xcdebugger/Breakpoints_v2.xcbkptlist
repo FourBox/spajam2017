@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spajam2017/StartViewController.swift"
-            timestampString = "516415169.138642"
+            timestampString = "516423398.639287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "finishing()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spajam2017/StartViewController.swift"
-            timestampString = "516416235.102204"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "postAPI()"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "deleteAllLocations()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,45 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spajam2017/ResultViewController.swift"
-            timestampString = "516417507.002499"
+            timestampString = "516423398.639287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spajam2017.ResultViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "spajam2017"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Transcend/spajam2017/spajam2017/ResultViewController.swift"
-                  timestampString = "516418044.48904"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "513">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spajam2017.ResultViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "spajam2017"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Transcend/spajam2017/spajam2017/ResultViewController.swift"
-                  timestampString = "516418044.491774"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "5509">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

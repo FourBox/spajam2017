@@ -102,6 +102,8 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         if(isStarting){
             isStarting = false
             finishiTime = NSDate() //終了時刻の記録
+            let image = UIImage(named: "btn_start")
+            startButton.setImage(image, for: UIControlState())
             userDefaults.set(lat, forKey: "goalLocationLat") //座標を保存
             userDefaults.set(lon, forKey: "goalLocationLon")
             let myPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
@@ -109,14 +111,17 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             myPin.coordinate = center
             myPin.title = "ゴール地点"
             mapView.addAnnotation(myPin)
+            self.title = "reconew"
             
             startButton.setTitle("Start", for: .normal)
-            dateLabel.text = "🙆🏻月🙅🏻日"
+            dateLabel.text = "2017年5月14日"
             let date_String = pastTimeCheck(data1: finishiTime, data2: startTime)
             timeLabel.text = "所要時間   " + date_String
             timer.invalidate()
 
             finishing()
+            
+            
         }else{
             isStarting = true
             startTime = NSDate() //開始時刻の記録
@@ -128,14 +133,17 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             myPin.title = "スタート地点"
             mapView.addAnnotation(myPin)
             
+            self.title = "GO"
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm:ss"
             let timeString = formatter.string(from: startTime as Date)
-           //TODO: ボタンの画像とか変更
-            startButton.setTitle("Stop", for: .normal)
+            let gimage = UIImage(named: "btn_goal")
+            startButton.setImage(gimage, for: UIControlState())
             dateLabel.text = "スタート時間  " + timeString
             timeLabel.text = "経過時間   00:00:00"
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StartViewController.onUpdate(timer:)), userInfo: nil, repeats: true)
+            dateLabel.isHidden = true
+            timeLabel.center = self.view.center
         }
     }
     
