@@ -24,6 +24,8 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var nowTimeLabel: UILabel!
+    
     var coordinate: CLLocationCoordinate2D!
     var locationManager: CLLocationManager!
     var isStarting = false
@@ -41,6 +43,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var speeds: [Float]!
 
     override func viewDidLoad() {
+        nowTimeLabel.isHidden = true
         super.viewDidLoad()
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -121,7 +124,9 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
             finishing()
             
-            
+            dateLabel.isHidden = false
+            timeLabel.isHidden = false
+            nowTimeLabel.isHidden = true
         }else{
             isStarting = true
             startTime = NSDate() //開始時刻の記録
@@ -139,11 +144,13 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             let timeString = formatter.string(from: startTime as Date)
             let gimage = UIImage(named: "btn_goal")
             startButton.setImage(gimage, for: UIControlState())
-            dateLabel.text = "スタート時間  " + timeString
+            nowTimeLabel.text = "TIME : " + timeString
             timeLabel.text = "経過時間   00:00:00"
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StartViewController.onUpdate(timer:)), userInfo: nil, repeats: true)
             dateLabel.isHidden = true
+            timeLabel.isHidden = true
             timeLabel.center = self.view.center
+            nowTimeLabel.isHidden = false
         }
     }
     
@@ -235,7 +242,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     func onUpdate(timer : Timer){
         let date_String = pastTimeCheck(data1: NSDate(), data2: startTime)
-        timeLabel.text = "経過時間   " + date_String
+        nowTimeLabel.text = "TIME : " + date_String
         
         let time = NSDate().timeIntervalSince(startTime as Date) // 現在時刻と開始時刻の差
         let hh = Int(time / 3600)
