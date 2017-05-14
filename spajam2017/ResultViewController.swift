@@ -13,9 +13,7 @@ import Charts
 
 class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var speedString: String?
-    var speedArray2: [Int]!
-    let userDefaults = UserDefaults.standard
+    var speeds: [Float]?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -26,11 +24,6 @@ class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         super.viewDidLoad()
 
         mapView.setCenter(mapView.userLocation.coordinate, animated: true)
-        
-        //StartVCからspeedStringにString型でデータが送られてくる
-        speedString = speedString?.substring(from: (speedString?.index(after: (speedString?.startIndex)!))!)
-        speedString = speedString?.substring(to: (speedString?.index(before: (speedString?.endIndex)!))!)
-        let speedArray = speedString?.components(separatedBy: ",")
         
         if(true){
             print("debug")
