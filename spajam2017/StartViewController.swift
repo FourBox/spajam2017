@@ -193,13 +193,9 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     //緯度経度を送ったら速度が返ってくる
     func postAPI(){
-        var postString:Data = "".data(using: .utf8)!
         do{
-            let postString = try JSONSerialization.data(withJSONObject: apiString)
-        } catch let error{
-            print(error)
-        }
-        var request = URLRequest(url: URL(string: "http://133.242.224.242/")!)
+        let postString = try JSONSerialization.data(withJSONObject: apiString)
+        var request = URLRequest(url: URL(string: "http://133.242.224.242")!)
         request.httpMethod = "POST"
         request.httpBody = postString
         let task = URLSession.shared.dataTask(with: request, completionHandler: {
@@ -209,8 +205,9 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 return
             }
             print("response: \(response!)")
+            print("data:\(data!)")
             do {
-                let json = try JSONSerialization.jsonObject(with: data!)
+                let json = try JSONSerialization.jsonObject(with: data! ,options: JSONSerialization.ReadingOptions.allowFragments)
                 let datas = json as! Array<Float>
                 for data in datas{
                     print(data)
@@ -219,9 +216,13 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             } catch let error{
                 print(error)
             }
-            self.segueToResultViewController()
         })
         task.resume()
+        } catch let error{
+            print(error)
+        }
+        
+        self.segueToResultViewController()
     }
 
     func onUpdate(timer : Timer){
