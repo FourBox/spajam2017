@@ -7,16 +7,25 @@
 //
 
 import Foundation
+import MapKit
 import UIKit
 import Charts
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var speedString: String?
     var speedArray2: [Int]!
+    let userDefaults = UserDefaults.standard
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var coordinate: CLLocationCoordinate2D!
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        mapView.setCenter(mapView.userLocation.coordinate, animated: true)
         
         //StartVCからspeedStringにString型でデータが送られてくる
         speedString = speedString?.substring(from: (speedString?.index(after: (speedString?.startIndex)!))!)
@@ -27,7 +36,22 @@ class ResultViewController: UIViewController {
             print("debug")
         }
         
-
+        let slat = userDefaults.double(forKey: "startLocationLat")
+        let slon = userDefaults.double(forKey: "startLocationLon")
+        let startPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
+        let scenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(slat, slon)
+        startPin.coordinate = scenter
+        startPin.title = "スタート地点"
+        mapView.addAnnotation(startPin)
+        
+        let glat = userDefaults.double(forKey: "goalLocationLat")
+        let glon = userDefaults.double(forKey: "goalLocationLon")
+        let goalPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
+        let gcenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(glat, glon)
+        goalPin.coordinate = gcenter
+        goalPin.title = "ゴール地点"
+        mapView.addAnnotation(goalPin)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -35,18 +59,20 @@ class ResultViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-}
-
-extension String {
     
-    func removed(string: String) -> String {
-        if let range = self.range(of: string) {
-            var mutatingSelf = self
-            mutatingSelf.replaceSubrange(range, with: "")
-            return mutatingSelf.removed(string: string)
-        }
-        return self
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        // 配列から現在座標を取得
+        let myLocations: NSArray = locations as NSArray
+        let myLastLocation: CLLocation = myLocations.lastObject as! CLLocation
+        let myLocation:CLLocationCoordinate2D = myLastLocation.coordinate
+        
+        print("\(myLocation.latitude), \(myLocation.longitude)")
+        
     }
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("regionDidChangeAnimated")
+    }
+
 }
 

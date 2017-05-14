@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRM-QA-fXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1766" y="-61"/>
+            <point key="canvasLocation" x="-1716" y="-63"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -51,7 +51,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9d-5o-jx9">
                                 <rect key="frame" x="0.0" y="498" width="375" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙆🏻月🙅🏻日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee9-gn-82x">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5月14日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee9-gn-82x">
                                         <rect key="frame" x="30" y="10" width="315" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="cSb-4k-tJa"/>
@@ -60,7 +60,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所要時間   hh:mm:ss" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMW-Nj-f66">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所要時間   00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMW-Nj-f66">
                                         <rect key="frame" x="30" y="40" width="315" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="OB2-Qd-NR8"/>
@@ -122,30 +122,72 @@
                         <outlet property="mapView" destination="bLf-PJ-Htw" id="AjY-ZU-LMr"/>
                         <outlet property="startButton" destination="vrw-6O-qHR" id="ajm-P1-aAq"/>
                         <outlet property="timeLabel" destination="QMW-Nj-f66" id="zXs-Cg-sKO"/>
-                        <segue destination="qYT-J1-Jap" kind="show" identifier="toResult" id="vIW-xE-cSy"/>
+                        <segue destination="NnE-zh-YVx" kind="show" identifier="toResult" id="BHj-51-aAq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-985" y="-62"/>
+            <point key="canvasLocation" x="-926" y="-63"/>
         </scene>
         <!--Result View Controller-->
-        <scene sceneID="RHt-lZ-UGV">
+        <scene sceneID="jaf-ea-x5R">
             <objects>
-                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qYT-J1-Jap" customClass="ResultViewController" customModule="spajam2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NnE-zh-YVx" customClass="ResultViewController" customModule="spajam2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tkE-hB-Wgx"/>
-                        <viewControllerLayoutGuide type="bottom" id="rNg-ly-62X"/>
+                        <viewControllerLayoutGuide type="top" id="Rld-of-OPG"/>
+                        <viewControllerLayoutGuide type="bottom" id="KXW-Op-HXP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ETZ-2o-TRR">
+                    <view key="view" contentMode="scaleToFill" id="yiI-Zg-51E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFp-0D-e20">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="w2N-n2-N7Q"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem id="wdP-Un-sro"/>
+                                    <tabBarItem systemItem="more" id="L63-2j-oxf"/>
+                                </items>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-Ed-wcc">
+                                <rect key="frame" x="0.0" y="498" width="375" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="QnO-G5-lab"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-L9-4ih">
+                                <rect key="frame" x="0.0" y="64" width="375" height="434"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NnE-zh-YVx" id="RN9-Uc-AvZ"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KXW-Op-HXP" firstAttribute="top" secondItem="WFp-0D-e20" secondAttribute="bottom" id="4fa-cn-WRh"/>
+                            <constraint firstItem="WFp-0D-e20" firstAttribute="leading" secondItem="yiI-Zg-51E" secondAttribute="leading" id="5y5-kv-2Xy"/>
+                            <constraint firstAttribute="trailing" secondItem="WFp-0D-e20" secondAttribute="trailing" id="9vX-C0-Oi8"/>
+                            <constraint firstAttribute="trailing" secondItem="5pE-Ed-wcc" secondAttribute="trailing" id="AbF-we-1gJ"/>
+                            <constraint firstItem="ljV-L9-4ih" firstAttribute="leading" secondItem="yiI-Zg-51E" secondAttribute="leading" id="GmP-0S-1vR"/>
+                            <constraint firstItem="5pE-Ed-wcc" firstAttribute="top" secondItem="ljV-L9-4ih" secondAttribute="bottom" id="TPh-fB-0bZ"/>
+                            <constraint firstItem="WFp-0D-e20" firstAttribute="top" secondItem="5pE-Ed-wcc" secondAttribute="bottom" id="k6R-cn-G2Y"/>
+                            <constraint firstItem="ljV-L9-4ih" firstAttribute="top" secondItem="Rld-of-OPG" secondAttribute="bottom" id="ke9-Xi-WUc"/>
+                            <constraint firstItem="5pE-Ed-wcc" firstAttribute="leading" secondItem="yiI-Zg-51E" secondAttribute="leading" id="nmT-aM-4BE"/>
+                            <constraint firstAttribute="trailing" secondItem="ljV-L9-4ih" secondAttribute="trailing" id="vqn-ph-B1H"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="d3S-aN-AgZ"/>
+                    <connections>
+                        <outlet property="mapView" destination="ljV-L9-4ih" id="X6q-pm-CZp"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4lS-BT-Zul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwI-co-DXx" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-188" y="-62"/>
+            <point key="canvasLocation" x="-114.40000000000001" y="-62.518740629685162"/>
         </scene>
     </scenes>
 </document>

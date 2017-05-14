@@ -31,7 +31,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var timer : Timer!
     var startTime: NSDate!
     var finishiTime: NSDate!
-    var userDefaults: UserDefaults!
+    let userDefaults = UserDefaults.standard
     var locationData:CLLocation!
     var apiString: String!
     var lat: String!
@@ -95,6 +95,14 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         if(isStarting){
             isStarting = false
             finishiTime = NSDate() //終了時刻の記録
+            userDefaults.set(lat, forKey: "goalLocationLat") //座標を保存
+            userDefaults.set(lon, forKey: "goalLocationLon")
+            let myPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
+            let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationData.coordinate.latitude, locationData.coordinate.longitude)
+            myPin.coordinate = center
+            myPin.title = "ゴール地点"
+            mapView.addAnnotation(myPin)
+            
             startButton.setTitle("Start", for: .normal)
             dateLabel.text = "🙆🏻月🙅🏻日"
             let date_String = pastTimeCheck(data1: finishiTime, data2: startTime)
@@ -105,6 +113,14 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }else{
             isStarting = true
             startTime = NSDate() //開始時刻の記録
+            userDefaults.set(lat, forKey: "startLocationLat") //座標を保存
+            userDefaults.set(lon, forKey: "startLocationLon")
+            let myPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
+            let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationData.coordinate.latitude, locationData.coordinate.longitude)
+            myPin.coordinate = center
+            myPin.title = "スタート地点"
+            mapView.addAnnotation(myPin)
+            
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm:ss"
             let timeString = formatter.string(from: startTime as Date)
