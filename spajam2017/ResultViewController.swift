@@ -12,16 +12,10 @@ import Charts
 
 class ResultViewController: UIViewController {
     
-    var speedString: String?
-    var speedArray2: [Int]!
+    var speeds: [Float]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //StartVCからspeedStringにString型でデータが送られてくる
-        speedString = speedString?.substring(from: (speedString?.index(after: (speedString?.startIndex)!))!)
-        speedString = speedString?.substring(to: (speedString?.index(before: (speedString?.endIndex)!))!)
-        let speedArray = speedString?.components(separatedBy: ",")
         
         if(true){
             print("debug")
