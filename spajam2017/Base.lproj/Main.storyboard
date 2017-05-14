@@ -45,11 +45,9 @@
                                     <constraint firstAttribute="height" constant="49" id="IHa-3r-tUB"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="履歴" image="recents" id="tcO-tM-HOj"/>
-                                    <tabBarItem title="チャレンジ" image="Group" selectedImage="nav_challenge" id="FYp-gW-688">
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Item" image="nav_friend" id="zB8-rg-NcW"/>
+                                    <tabBarItem title="履歴" image="recents" selectedImage="recents" id="tcO-tM-HOj"/>
+                                    <tabBarItem title="チャレンジ" image="チャレンジ" selectedImage="チャレンジ" id="FYp-gW-688"/>
+                                    <tabBarItem title="フレンド" image="ふれんど" selectedImage="ふれんど" id="zB8-rg-NcW"/>
                                 </items>
                             </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9d-5o-jx9">
@@ -166,8 +164,9 @@
                                     <constraint firstAttribute="height" constant="49" id="w2N-n2-N7Q"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem id="wdP-Un-sro"/>
-                                    <tabBarItem systemItem="more" id="L63-2j-oxf"/>
+                                    <tabBarItem title="履歴" image="recents" selectedImage="recents" id="xQN-7O-GMG"/>
+                                    <tabBarItem title="チャレンジ" image="チャレンジ" selectedImage="チャレンジ" id="uM3-UH-RYG"/>
+                                    <tabBarItem title="フレンド" image="ふれんど" selectedImage="ふれんど" id="KNd-Wc-wto"/>
                                 </items>
                             </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pE-Ed-wcc">
@@ -209,10 +208,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group" width="44" height="40"/>
         <image name="btn_start" width="245" height="62"/>
-        <image name="nav_challenge" width="29" height="26"/>
-        <image name="nav_friend" width="34" height="39"/>
         <image name="recents" width="21" height="21"/>
+        <image name="ふれんど" width="34" height="26"/>
+        <image name="チャレンジ" width="29" height="26"/>
     </resources>
 </document>

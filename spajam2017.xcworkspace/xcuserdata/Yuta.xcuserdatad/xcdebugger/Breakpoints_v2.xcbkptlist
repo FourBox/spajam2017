@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spajam2017/StartViewController.swift"
-            timestampString = "516423398.639287"
+            timestampString = "516424319.686556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "deleteAllLocations()"
             landmarkType = "7">
          </BreakpointContent>
