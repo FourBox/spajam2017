@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import RealmSwift
+import Foundation
 
 class Location: Object {
     dynamic var latitude: Double = 0.0
@@ -31,13 +32,13 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var timer : Timer!
     var startTime: NSDate!
     var finishiTime: NSDate!
-    var userDefaults: UserDefaults!
+    let userDefaults = UserDefaults.standard
     var locationData:CLLocation!
-    var apiString: String!
-    var lat: String!
-    var lon: String!
+    var apiString: [[Float]]!
+    var lat: Float!
+    var lon: Float!
     var check:Bool!  //apiStringの初回読み込みに使用
-    var speedString: String!
+    var speeds: [Float]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +50,17 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let status = CLLocationManager.authorizationStatus()
         deleteAllLocations()
         locations2 = Array()
-        apiString = ""
-        lat = ""
-        lon = ""
+        apiString = [
+            [43.056703, 141.387972],
+            [43.056092, 141.388809],
+            [43.056123, 141.390032],
+            [43.055598, 141.391212],
+            [43.054030, 141.393379]
+        ]
+        lat = 0
+        lon = 0
         check = true
-        speedString = ""
+        speeds = []
         
         // まだ認証が得られていない場合は、認証ダイアログを表示.
         if(status != CLAuthorizationStatus.authorizedWhenInUse) {
@@ -82,8 +89,8 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         print("\(myLocation.latitude), \(myLocation.longitude)")
         
         locationData = myLastLocation
-        lat = String(myLocation.latitude)
-        lon = String(myLocation.longitude)
+        lat = Float(myLocation.latitude)
+        lon = Float(myLocation.longitude)
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,6 +102,14 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         if(isStarting){
             isStarting = false
             finishiTime = NSDate() //終了時刻の記録
+            userDefaults.set(lat, forKey: "goalLocationLat") //座標を保存
+            userDefaults.set(lon, forKey: "goalLocationLon")
+            let myPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
+            let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationData.coordinate.latitude, locationData.coordinate.longitude)
+            myPin.coordinate = center
+            myPin.title = "ゴール地点"
+            mapView.addAnnotation(myPin)
+            
             startButton.setTitle("Start", for: .normal)
             dateLabel.text = "🙆🏻月🙅🏻日"
             let date_String = pastTimeCheck(data1: finishiTime, data2: startTime)
@@ -105,6 +120,14 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }else{
             isStarting = true
             startTime = NSDate() //開始時刻の記録
+            userDefaults.set(lat, forKey: "startLocationLat") //座標を保存
+            userDefaults.set(lon, forKey: "startLocationLon")
+            let myPin: MKPointAnnotation = MKPointAnnotation() //ピンを生成
+            let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationData.coordinate.latitude, locationData.coordinate.longitude)
+            myPin.coordinate = center
+            myPin.title = "スタート地点"
+            mapView.addAnnotation(myPin)
+            
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm:ss"
             let timeString = formatter.string(from: startTime as Date)
@@ -154,9 +177,7 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let realm = try! Realm()
         let result: Results<Location> = realm.objects(Location.self).sorted(byKeyPath: "createdAt", ascending: false)
             let array = Array(realm.objects(Location)) //中身が消える？
-            apiString = apiString + "]"
             postAPI()
-        
     }
     
     func segueToResultViewController() {
@@ -165,18 +186,22 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult" {
             let resultViewController = segue.destination as! ResultViewController
-            resultViewController.speedString = speedString
+            resultViewController.speeds = speeds
         }
     }
 
 
     //緯度経度を送ったら速度が返ってくる
     func postAPI(){
-        let postString = apiString
+        var postString:Data = "".data(using: .utf8)!
+        do{
+            let postString = try JSONSerialization.data(withJSONObject: apiString)
+        } catch let error{
+            print(error)
+        }
         var request = URLRequest(url: URL(string: "http://133.242.224.242/")!)
         request.httpMethod = "POST"
-        request.httpBody = postString?.data(using: .utf8)
-        var output = ""
+        request.httpBody = postString
         let task = URLSession.shared.dataTask(with: request, completionHandler: {
             (data, response, error) in
             if error != nil {
@@ -184,9 +209,16 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 return
             }
             print("response: \(response!)")
-             output = String(data: data!, encoding: .utf8)!
-            print("output: \(output)")
-            self.speedString = output
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!)
+                let datas = json as! Array<Float>
+                for data in datas{
+                    print(data)
+                    self.speeds.append(data)
+                }
+            } catch let error{
+                print(error)
+            }
             self.segueToResultViewController()
         })
         task.resume()
@@ -205,10 +237,10 @@ class StartViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             if(isStarting){
                 addCurrentLocation(locationData)
                 if(check){
-                    apiString = "[[" + lat + "," + lon + "]"
+                    apiString.append([lat,lon])
                     check = false
                 }else{
-                    apiString = apiString + ",[" + lat + "," + lon + "]"
+                    apiString.append([lat,lon])
                 }
             }
         }
