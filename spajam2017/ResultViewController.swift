@@ -46,8 +46,10 @@ class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let gcenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(glat, glon)
         goalPin.coordinate = gcenter
         goalPin.title = "ゴール地点"
+        
         mapView.addAnnotation(goalPin)
         
+        mapView.setCenter(goalPin.coordinate, animated: true) 
         // Do any additional setup after loading the view.
     }
 
