@@ -19,9 +19,12 @@ class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var coordinate: CLLocationCoordinate2D!
     var locationManager: CLLocationManager!
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "詳細"
 
         mapView.setCenter(mapView.userLocation.coordinate, animated: true)
         
@@ -43,8 +46,10 @@ class ResultViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let gcenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(glat, glon)
         goalPin.coordinate = gcenter
         goalPin.title = "ゴール地点"
+        
         mapView.addAnnotation(goalPin)
         
+        mapView.setCenter(goalPin.coordinate, animated: true) 
         // Do any additional setup after loading the view.
     }
 
